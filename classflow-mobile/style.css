@@ -88,6 +88,7 @@ html, body {
 }
 .screen.active { display: flex !important; }
 .app { display: none !important; width: 100%; height: 100vh; overflow: hidden; }
+.app.active { overflow: visible; }
 .app.active { display: flex !important; }
 
 /* ── LOGIN ── */
@@ -221,6 +222,8 @@ body.dark .badge-blue  { background: #0a2040; color: #6aabf7; }
   display: flex; align-items: center; gap: 10px;
   padding: 10px 0; border-bottom: 1px solid var(--border-row);
   cursor: pointer; transition: background 0.1s;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 .row:last-child { border-bottom: none; }
 .row:hover { background: var(--bg-row-hover); margin: 0 -8px; padding: 10px 8px; border-radius: 6px; }
@@ -335,6 +338,8 @@ body.dark .btn-danger  { background: #3a1515; color: #f08080; }
   font-family: inherit;
   transition: color 0.15s;
   position: relative;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 .mob-nav-btn .mob-icon { font-size: 20px; line-height: 1; }
 .mob-nav-btn.active { color: var(--nav-active-col); font-weight: 500; }
@@ -412,6 +417,9 @@ body.dark .btn-danger  { background: #3a1515; color: #f08080; }
 @media (max-width: 768px) {
 
   html, body { overflow: hidden; }
+.row, .notif-row, .class-card, .btn, .mob-nav-btn, .nav-item, button {
+  touch-action: manipulation;
+}
 
   /* Hide desktop sidebar */
   .sidebar { display: none !important; }
