@@ -74,6 +74,8 @@ function openAssignmentDetail(id) {
   const st  = SUBMISSION_STATE[id];
 
   const page = document.getElementById('assign-detail-page');
+  page.style.display = 'block';
+  page.style.pointerEvents = 'auto';
   page.classList.add('open');
   document.body.style.overflow = 'hidden';
 
@@ -84,6 +86,8 @@ function openAssignmentDetail(id) {
 function closeAssignmentDetail() {
   const page = document.getElementById('assign-detail-page');
   page.classList.remove('open');
+  page.style.display = 'none';
+  page.style.pointerEvents = 'none';
   document.body.style.overflow = '';
   currentOpenAssignId = null;
 }
@@ -401,11 +405,16 @@ function promptSubmit(id) {
   document.getElementById('submit-confirm-sub').textContent =
     `You're about to submit ${st.files.length} file(s)${st.links.length?', '+st.links.length+' link(s)':''} to ${SUBJECTS.find(s=>s.id===a.subject).professor}. You can unsubmit until graded.`;
   document.getElementById('submit-confirm-btn').onclick = () => finalSubmit(id);
+  overlay.style.display = 'flex';
+  overlay.style.pointerEvents = 'auto';
   overlay.classList.add('open');
 }
 
 function closeSubmitConfirm() {
-  document.getElementById('submit-confirm-overlay').classList.remove('open');
+  const overlay = document.getElementById('submit-confirm-overlay');
+  overlay.classList.remove('open');
+  overlay.style.display = 'none';
+  overlay.style.pointerEvents = 'none';
 }
 
 function finalSubmit(id) {
