@@ -11,8 +11,9 @@
   z-index: 500;
   overflow-y: auto;
   padding-bottom: 100px;
+  pointer-events: none;
 }
-.assign-detail-page.open { display: block; }
+.assign-detail-page.open { display: block; pointer-events: auto; }
 
 .adp-header {
   padding: 0;
@@ -306,8 +307,9 @@ body.dark .late-banner { background: #3a1515; border-color: #6b2020; color: #f08
   z-index: 1500;
   align-items: center;
   justify-content: center;
+  pointer-events: none;
 }
-.submit-confirm-overlay.open { display: flex; }
+.submit-confirm-overlay.open { display: flex; pointer-events: auto; }
 .submit-confirm-box {
   background: var(--bg-card);
   border-radius: 16px;
@@ -414,6 +416,8 @@ body.dark .late-banner { background: #3a1515; border-color: #6b2020; color: #f08
   border-bottom: 1px solid var(--border-row);
   cursor: pointer;
   transition: background 0.1s;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 .sub-list-item:last-child { border-bottom: none; }
 .sub-list-item:hover { background: var(--bg-row-hover); margin: 0 -8px; padding: 12px 8px; border-radius: 8px; }
